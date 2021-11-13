@@ -30,7 +30,7 @@ requirements:
 #     - _ruamel_yaml
 
 about:
-  home: https://bitbucket.org/ruamel/yaml.clib
+  home: https://sourceforge.net/projects/ruamel-yaml-clib/
   license: MIT
   license_family: MIT
   license_file: LICENSE
