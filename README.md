@@ -1,7 +1,7 @@
 About ruamel.yaml.clib
 ======================
 
-Home: https://bitbucket.org/ruamel/yaml.clib
+Home: https://sourceforge.net/projects/ruamel-yaml-clib/
 
 Package license: MIT
 
