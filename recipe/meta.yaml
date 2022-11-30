@@ -9,7 +9,7 @@ source:
   sha256: 1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -23,11 +23,12 @@ requirements:
   run:
     - python
 
-# test:
-#   requires:
-#     - ruamel.yaml
-#   imports:
-#     - _ruamel_yaml
+test:
+  downstreams:
+    - ruamel.yaml
+  commands:
+    - test -f ${SP_DIR}/_ruamel_yaml.*${SHLIB_EXT}  # [not win]
+    - if not exist %SP_DIR%\_ruamel_yaml.*%SHLIB_EXT% exit 1  # [win]
 
 about:
   home: https://sourceforge.net/projects/ruamel-yaml-clib/
@@ -38,4 +39,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - mbargull
     - ocefpaf
