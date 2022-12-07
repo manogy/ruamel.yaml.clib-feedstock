@@ -24,11 +24,15 @@ requirements:
     - python
 
 test:
+  # Use downstreams and importlib.util.find_spec instead of a usual import test
+  # since we have a yet-to-be-resolved cyclic dependency with ruamel.yaml because
+  # ruamel.yaml.clib needs the "ruamel.yaml" Python namespace package which is
+  # currently shipped with all other ruamel.yaml code in our ruamel.yaml package.
+  # See https://github.com/conda-forge/ruamel.yaml-feedstock/issues/119 for details.
   downstreams:
     - ruamel.yaml
   commands:
-    - test -f ${SP_DIR}/_ruamel_yaml.*${SHLIB_EXT}  # [not win]
-    - if not exist %SP_DIR%\_ruamel_yaml.*%SHLIB_EXT% exit 1  # [win]
+    - python -c "from importlib.util import find_spec; assert find_spec('_ruamel_yaml')"
 
 about:
   home: https://sourceforge.net/projects/ruamel-yaml-clib/
