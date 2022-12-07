@@ -9,7 +9,7 @@ source:
   sha256: 1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -23,11 +23,16 @@ requirements:
   run:
     - python
 
-# test:
-#   requires:
-#     - ruamel.yaml
-#   imports:
-#     - _ruamel_yaml
+test:
+  # Use downstreams and importlib.util.find_spec instead of a usual import test
+  # since we have a yet-to-be-resolved cyclic dependency with ruamel.yaml because
+  # ruamel.yaml.clib needs the "ruamel.yaml" Python namespace package which is
+  # currently shipped with all other ruamel.yaml code in our ruamel.yaml package.
+  # See https://github.com/conda-forge/ruamel.yaml-feedstock/issues/119 for details.
+  downstreams:
+    - ruamel.yaml
+  commands:
+    - python -c "from importlib.util import find_spec; assert find_spec('_ruamel_yaml')"
 
 about:
   home: https://sourceforge.net/projects/ruamel-yaml-clib/
@@ -38,4 +43,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - mbargull
     - ocefpaf
