@@ -5,20 +5,30 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/r/ruamel.yaml.clib/ruamel.yaml.clib-{{ version }}.tar.gz
-  sha256: 1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497
+  - url: https://pypi.io/packages/source/r/ruamel.yaml.clib/ruamel.yaml.clib-{{ version }}.tar.gz
+    sha256: 1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497
+  - fn: _ruamel_yaml.pyx
+    url: https://sourceforge.net/p/ruamel-yaml-clib/code/ci/{{ version }}/tree/_ruamel_yaml.pyx?format=raw
+    sha256: fb6b5653201f1ed89a951f6931fda377737156c4f30cadbd240f4d28f607665a
+  - fn: _ruamel_yaml.pxd
+    url: https://sourceforge.net/p/ruamel-yaml-clib/code/ci/{{ version }}/tree/_ruamel_yaml.pxd?format=raw
+    sha256: ee35a75fd753a369bee439ec7e1826e77c7feaabf9c3ec9cf2f58110c7a95656
 
 build:
   number: 2
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - cythonize _ruamel_yaml.pyx
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
+    - cython <3                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
+    - cython <3
     - pip
   run:
     - python
