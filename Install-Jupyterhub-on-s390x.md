@@ -53,3 +53,31 @@ pip install jupyterhub --no-cache-dir
 Now Jupyter Hub has been installed, which can be used by the user. 
 
 
+### Example:
+
+```
+09:06:59  |jupyterhub-test|root@manogya1 ~ → uname 
+Linux
+09:07:03  |jupyterhub-test|root@manogya1 ~ → uname -m 
+s390x
+09:07:09  |jupyterhub-test|root@manogya1 ~ → jupyterhub
+[I 2024-02-07 09:07:18.364 JupyterHub app:2859] Running JupyterHub version 4.0.2
+[I 2024-02-07 09:07:18.364 JupyterHub app:2889] Using Authenticator: jupyterhub.auth.PAMAuthenticator-4.0.2
+[I 2024-02-07 09:07:18.364 JupyterHub app:2889] Using Spawner: jupyterhub.spawner.LocalProcessSpawner-4.0.2
+[I 2024-02-07 09:07:18.364 JupyterHub app:2889] Using Proxy: jupyterhub.proxy.ConfigurableHTTPProxy-4.0.2
+[I 2024-02-07 09:07:18.369 JupyterHub app:1664] Loading cookie_secret from /root/jupyterhub_cookie_secret
+[I 2024-02-07 09:07:18.423 JupyterHub proxy:556] Generating new CONFIGPROXY_AUTH_TOKEN
+[I 2024-02-07 09:07:18.451 JupyterHub app:1984] Not using allowed_users. Any authenticated user will be allowed.
+[I 2024-02-07 09:07:18.463 JupyterHub app:2928] Initialized 0 spawners in 0.001 seconds
+[I 2024-02-07 09:07:18.467 JupyterHub metrics:278] Found 0 active users in the last ActiveUserPeriods.twenty_four_hours
+[I 2024-02-07 09:07:18.468 JupyterHub metrics:278] Found 0 active users in the last ActiveUserPeriods.seven_days
+[I 2024-02-07 09:07:18.468 JupyterHub metrics:278] Found 0 active users in the last ActiveUserPeriods.thirty_days
+[W 2024-02-07 09:07:18.468 JupyterHub proxy:625] Found proxy pid file: /root/jupyterhub-proxy.pid
+[W 2024-02-07 09:07:18.469 JupyterHub proxy:637] Proxy no longer running at pid=4381
+[W 2024-02-07 09:07:18.470 JupyterHub proxy:746] Running JupyterHub without SSL.  I hope there is SSL termination happening somewhere else...
+[I 2024-02-07 09:07:18.470 JupyterHub proxy:750] Starting proxy @ http://:8000
+09:07:18.741 [ConfigProxy] info: Proxying http://*:8000 to (no default)
+09:07:18.746 [ConfigProxy] info: Proxy API at http://127.0.0.1:8001/api/routes
+
+
+```
