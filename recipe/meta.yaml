@@ -13,6 +13,7 @@ source:
   - fn: _ruamel_yaml.pxd
     url: https://sourceforge.net/p/ruamel-yaml-clib/code/ci/{{ version }}/tree/_ruamel_yaml.pxd?format=raw
     sha256: ee35a75fd753a369bee439ec7e1826e77c7feaabf9c3ec9cf2f58110c7a95656
+    patches: s390x-patch.patch
 
 build:
   number: 2
