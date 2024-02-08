@@ -14,7 +14,7 @@ Please follow the process described in the README of  https://github.com/manogy/
 
 
 ## Setup conda env with all required packages to run Jupyterhub
-Please make sure Nodejs is available on the VM.
+Please make sure Nodejs is available on the VM. In my VM nodejs version 16 is installed.
 
 Install configurable-http-proxy on the VM globally by running the below command:
 ```
