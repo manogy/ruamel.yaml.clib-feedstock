@@ -4,7 +4,7 @@ Install Jupyterhub on S390x VM.
 
 This process consists of two main steps: 
 1. Creating ruamel.yaml.clib conda package with the help of feedstock.
-2. Consuming this package with other dependencies of Jupyterhub.
+2. Consuming this package with other dependencies of Jupyterhub during install.
 
 
 ## Creating ruamel.yaml.clib conda package with the help of feedstock 
