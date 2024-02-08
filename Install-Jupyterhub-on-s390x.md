@@ -46,7 +46,7 @@ Install the ruamel.yaml.clib package like below, here /root/miniconda3/conda-bld
 Install Jupyterhub with help of PIP command
 
 ```
-pip install jupyterhub --no-cache-dir
+pip install jupyterhub==4.0.2 --no-cache-dir
 
 ```
 
