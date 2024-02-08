@@ -10,7 +10,7 @@ This process consists of two main steps:
 ## Creating ruamel.yaml.clib conda package with the help of feedstock 
 
 S390x is a Big Endian CPU arch and ruamel.yaml.clib has an open bug related to this hence we need to apply a patch and build the ruamel.yaml.clib package with the help of feedstock. 
-Please follow the process described in the README.md ( https://github.com/manogy/ruamel.yaml.clib-feedstock/blob/main/README.md )  of  https://github.com/manogy/ruamel.yaml.clib-feedstock
+Please follow the [Build process](https://github.com/manogy/ruamel.yaml.clib-feedstock/blob/main/README.md#build-steps) described in the [README.md](https://github.com/manogy/ruamel.yaml.clib-feedstock/blob/main/README.md)   of  https://github.com/manogy/ruamel.yaml.clib-feedstock
 
 
 ## Setup conda env with all required packages to run Jupyterhub
