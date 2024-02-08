@@ -2,7 +2,7 @@
 Introduction 
 ================================
 
-Beacuse of Endiannes issues, in Big endian CPU architectures like s390x  Ruaeml.yaml.clib throws below error 
+Because of Endiannes issues, in Big endian CPU architectures like s390x  ruamel.yaml.clib throws the below error 
 
 ```
       File "_ruamel_yaml.pyx", line 701, in ruamel.yaml.clib._ruamel_yaml.CParser.get_single_node
@@ -19,19 +19,30 @@ As the later one has Big endian support we have included it as a patch in the fe
 
 Build Steps:
 ================================
-1. 
-    Make sure you are in base environment of conda unless you want to use a specific conda environment. 
-    If conda-build package is not installed please install it with below command.
+
+
+1.  Clone the repo https://github.com/manogy/ruamel.yaml.clib-feedstock.git
+      ```
+      git clone https://github.com/manogy/ruamel.yaml.clib-feedstock.git
+      ```
+
+2.  change the directory to recipe.
+    ```
+    cd ruamel.yaml.clib-feedstock/recipe
+    ```
+3.  
+    Make sure you are in the base environment of the conda unless you want to use a specific conda environment. 
+    If conda-build package is not installed please install it with the below command.
     ```
     conda install conda-build
     ```
-2.  To build the conda package run the below command from recipe folder.
+4.  To build the conda package run the below command (from the recipe folder).
 
     ```
     conda build .
     ```
 
-    above command will start the build of package , once it completes it will generate last lines of log similar to below lines
+5.  Above command will start the build of the package, once it completes it will generate the last lines of the log similar to the below lines
 
     ```
         # Automatic uploading is disabled
